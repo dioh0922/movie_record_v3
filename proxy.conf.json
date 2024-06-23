@@ -1,0 +1,12 @@
+{
+  "/api/**/*.php": {
+    "target": "http://localhost:80/",
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  }
+}
+
