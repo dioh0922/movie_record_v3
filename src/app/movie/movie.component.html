@@ -1,0 +1,38 @@
+<div>
+  <form name="input_data">
+  評価:
+    <select name="point" class="select_box_style" id="select_box_point" [(ngModel)]="selectedPoint">
+      <option value="1">1</option>
+      <option value="1.5">1.5</option>
+      <option value="2">2</option>
+      <option value="2.5">2.5</option>
+      <option value="3">3</option>
+      <option value="3.5">3.5</option>
+      <option value="4">4</option>
+      <option value="4.5">4.5</option>
+      <option value="5">5</option>
+    </select>
+    <input type="button" id="PointBtn" class="select_box_btn" name="PointBtn" value="評価別" (click)="searchPoint()">
+  カテゴリ:
+    <select name="Category" class="select_box_style" id="select_box_category" [(ngModel)]="selectedCategory">
+      <option *ngFor="let category of categoryList" [value]="category.category">
+        {{category.label}}
+      </option>
+    </select>
+    <input type="button" id="CategoryBtn"  class="select_box_btn" name="CategoryBtn" value="カテゴリ別" (click)="serchCategoryMovie()">
+  </form>
+  <form name="text_form" id="all_text_area">
+    <div id="result_text_area">
+      <h1 id="result_area" name="out_text" v-for="(value, key) in text">
+      </h1>
+    </div>
+  </form>
+</div>
+
+<movie-control (fetchSuccess)="setResult($event)"></movie-control>
+
+<ng-container>
+  <ul>
+    <li *ngFor="let item of result">{{item.title}}</li>
+  </ul>
+</ng-container>
