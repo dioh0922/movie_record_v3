@@ -3,11 +3,21 @@ import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { MovieControlComponent } from './movie-control.component'
 import { HttpClient } from '@angular/common/http'
+import { MatButton } from '@angular/material/button'
+import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatInputModule} from '@angular/material/input'
 
 @Component({
   selector: 'app-movie',
   standalone: true,
-  imports: [CommonModule, FormsModule, MovieControlComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    MovieControlComponent,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButton
+  ],
   templateUrl: './movie.component.html',
   styleUrl: './movie.component.css'
 })

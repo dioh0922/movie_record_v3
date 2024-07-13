@@ -1,5 +1,6 @@
-import { Component,Injectable, Output, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component,Injectable, Output, EventEmitter } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { MatButton } from '@angular/material/button';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'movie-control',
   standalone: true,
+  imports: [MatButton],
   templateUrl: './movie-control.component.html',
 })
 export class MovieControlComponent {
