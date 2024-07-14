@@ -4,8 +4,10 @@ import { FormsModule } from '@angular/forms'
 import { MovieControlComponent } from './movie-control.component'
 import { HttpClient } from '@angular/common/http'
 import { MatButton } from '@angular/material/button'
-import {MatFormFieldModule} from '@angular/material/form-field'
-import {MatInputModule} from '@angular/material/input'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select'
+import { MatToolbarModule } from '@angular/material/toolbar'
 
 @Component({
   selector: 'app-movie',
@@ -16,6 +18,8 @@ import {MatInputModule} from '@angular/material/input'
     MovieControlComponent,
     MatInputModule,
     MatFormFieldModule,
+    MatToolbarModule,
+    MatSelectModule,
     MatButton
   ],
   templateUrl: './movie.component.html',
@@ -30,7 +34,7 @@ export class MovieComponent implements OnInit {
   result: any[] = []
   categoryList: any[] = []
   selectedCategory: Number = 1
-  selectedPoint: Number = 1
+  selectedPoint: string = "1"
 
   ngOnInit(){
     this.http.get("./api/movie_project_refactoring/src/api/get_category_table.php").subscribe((data: any) => {

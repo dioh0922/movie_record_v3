@@ -1,40 +1,35 @@
-<div>
-  <mat-form-field>
-    <input matInput>
-  <form name="input_data" >
-  評価:
-    <select name="point" class="select_box_style" id="select_box_point" [(ngModel)]="selectedPoint">
-      <option value="1">1</option>
-      <option value="1.5">1.5</option>
-      <option value="2">2</option>
-      <option value="2.5">2.5</option>
-      <option value="3">3</option>
-      <option value="3.5">3.5</option>
-      <option value="4">4</option>
-      <option value="4.5">4.5</option>
-      <option value="5">5</option>
-    </select>
+<div fxLayout="column">
+  <mat-form-field class="full-width">
+    <mat-label>評価</mat-label>
+    <mat-select [(ngModel)]="selectedPoint">
+      <mat-option value="1">1</mat-option>
+      <mat-option value="1.5">1.5</mat-option>
+      <mat-option value="2">2</mat-option>
+      <mat-option value="2.5">2.5</mat-option>
+      <mat-option value="3">3</mat-option>
+      <mat-option value="3.5">3.5</mat-option>
+      <mat-option value="4">4</mat-option>
+      <mat-option value="4.5">4.5</mat-option>
+      <mat-option value="5">5</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-toolbar class="full-width">
     <button mat-flat-button (click)="searchPoint()">評価別</button>
-  カテゴリ:
-    <select name="Category" class="select_box_style" id="select_box_category" [(ngModel)]="selectedCategory">
-      <option *ngFor="let category of categoryList" [value]="category.category">
-        {{category.label}}
-      </option>
-    </select>
+  </mat-toolbar>
+
+  <mat-form-field class="full-width">
+    <mat-label> カテゴリ</mat-label>
+    <mat-select [(ngModel)]="selectedCategory">
+      <mat-option *ngFor="let category of categoryList" [value]="category.category">{{category.label}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-toolbar class="full-width">
     <button mat-flat-button (click)="serchCategoryMovie()">カテゴリ別</button>
-
-  </form>
-
-  <form name="text_form" id="all_text_area">
-    <div id="result_text_area">
-      <h1 id="result_area" name="out_text" v-for="(value, key) in text">
-      </h1>
-    </div>
-  </form>
+  </mat-toolbar>
 
   <movie-control (fetchSuccess)="setResult($event)"></movie-control>
-
-  </mat-form-field>
 
 </div>
 
