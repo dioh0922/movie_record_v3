@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
-import { MovieControlComponent } from './movie-control.component'
 import { HttpClient } from '@angular/common/http'
 import { MatButton } from '@angular/material/button'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatSelectModule } from '@angular/material/select'
 import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatDialog } from '@angular/material/dialog'
+import { MovieControlComponent } from './movie-control.component'
+import { DialogComponent, DIALOG_MODE, DialogModeType } from './dialog.component'
 
 @Component({
   selector: 'app-movie',
@@ -27,10 +29,10 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 })
 export class MovieComponent implements OnInit {
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    public dialog: MatDialog
   ){
   }
-
   result: any[] = []
   categoryList: any[] = []
   selectedCategory: Number = 1
@@ -59,8 +61,24 @@ export class MovieComponent implements OnInit {
   setResult(list: any[]){
     if(list.length > 0){
       this.result = list
+      this.openDialogResultList()
     }else{
       this.result = []
     }
+  }
+
+  showDetail(e: any){
+    this.openDialog({mode: DIALOG_MODE.DETAIL, detail: e})
+  }
+
+  openDialogResultList(){
+    this.openDialog({mode: DIALOG_MODE.LIST, list: this.result})
+  }
+
+  openDialog(param: {mode: DialogModeType, list?: any[], detail?: string}): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: param,
+    });
+
   }
 }

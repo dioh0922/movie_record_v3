@@ -29,13 +29,6 @@
     <button mat-flat-button (click)="serchCategoryMovie()">カテゴリ別</button>
   </mat-toolbar>
 
-  <movie-control (fetchSuccess)="setResult($event)"></movie-control>
+  <movie-control (fetchSuccess)="setResult($event)" (calcDetail)="showDetail($event)"></movie-control>
 
 </div>
-
-
-<ng-container>
-  <ul>
-    <li *ngFor="let item of result">{{item.title}}</li>
-  </ul>
-</ng-container>

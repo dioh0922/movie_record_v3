@@ -18,6 +18,7 @@ export class MovieControlComponent {
   }
 
   @Output() fetchSuccess: EventEmitter<any> = new EventEmitter()
+  @Output() calcDetail: EventEmitter<any> = new EventEmitter()
 
   showAll(){
     this.http.get("./api//movie_project_refactoring/src/api/show_all_movie.php").subscribe((data) => {
@@ -27,8 +28,8 @@ export class MovieControlComponent {
   }
 
   totalCalc(){
-    this.http.post("./api/movie_project_refactoring/src/api/calc_total.php", {kind: "LastData"}).subscribe((data) => {
-      console.log(data)
+    this.http.post("./api/movie_project_refactoring/src/api/calc_total.php", {kind: "LastData"}).subscribe((data: any) => {
+      this.calcDetail.emit(data)
     })
   }
 

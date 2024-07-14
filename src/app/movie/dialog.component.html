@@ -1,0 +1,16 @@
+<mat-dialog-content>
+
+    <ul *ngIf="dispMode === DIALOG_MODE.LIST">
+      <li *ngFor="let item of resultList">{{item.title}}</li>
+    </ul>
+
+    <div *ngIf="dispMode === DIALOG_MODE.DETAIL">
+      <p>{{detail.scrTime}}分</p>
+      <p>{{detail.value}}円</p>
+      <p>{{detail.count}}本</p>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-flat-button (click)="onNoClick()">close</button>
+</mat-dialog-actions>
