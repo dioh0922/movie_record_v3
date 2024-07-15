@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { FormsModule } from '@angular/forms'
 import { HttpClient } from '@angular/common/http'
+import { FlexLayoutModule } from '@angular/flex-layout'
 import { MatButton } from '@angular/material/button'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
@@ -18,6 +19,7 @@ import { DialogComponent, DIALOG_MODE, DialogModeType } from './dialog.component
     CommonModule,
     FormsModule,
     MovieControlComponent,
+    FlexLayoutModule,
     MatInputModule,
     MatFormFieldModule,
     MatToolbarModule,

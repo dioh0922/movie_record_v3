@@ -2,13 +2,14 @@ import { Component,Injectable, Output, EventEmitter } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { MatButton } from '@angular/material/button'
 import { MatToolbarModule } from '@angular/material/toolbar'
+import { FlexLayoutModule } from '@angular/flex-layout'
 @Injectable({
   providedIn: 'root'
 })
 @Component({
   selector: 'movie-control',
   standalone: true,
-  imports: [MatToolbarModule, MatButton],
+  imports: [MatToolbarModule, MatButton, FlexLayoutModule],
   templateUrl: './movie-control.component.html',
 })
 export class MovieControlComponent {
