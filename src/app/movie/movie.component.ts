@@ -55,7 +55,7 @@ export class MovieComponent implements OnInit {
   }
 
   private searchDetail(param: any){
-    this.http.post("./api//movie_project_refactoring/src/api/show_detail.php", param).subscribe((data: any) => {
+    this.http.post("./api/movie_project_refactoring/src/api/show_detail.php", param).subscribe((data: any) => {
       this.setResult(data)
     });
   }
