@@ -3,3 +3,10 @@
   color: white;
   margin-bottom: 5px;
 }
+
+.custom-menu {
+  background-color: #4CAF50;
+  color: white;
+  margin-bottom: 5px;
+  border: none;
+}

@@ -1,8 +1,20 @@
 <div class="CalcMenuLayout">
   <mat-toolbar class="custom-toolbar">
-    <mat-toolbar-row fxLayoutAlign="center center">
-      <span>映画管理</span>
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+      <button class="custom-menu" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" fxLayoutAlign="left">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>link</mat-icon>
+          <a class="button" routerLink="/movie">映画</a>
+        </button>
+      </mat-menu>
+      <span fxLayoutAlign="center">映画管理</span>
+      <div></div>
+
     </mat-toolbar-row>
+
   </mat-toolbar>
 
   <router-outlet />
