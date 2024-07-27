@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http'
 import { MatButton } from '@angular/material/button'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { FlexLayoutModule } from '@angular/flex-layout'
+import { environment } from '../../environments/environment'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,31 +19,32 @@ export class MovieControlComponent {
     private http: HttpClient
   ){
   }
+  private apiUrl = environment.apiUrl
 
   @Output() fetchSuccess: EventEmitter<any> = new EventEmitter()
   @Output() calcDetail: EventEmitter<any> = new EventEmitter()
 
   showAll(){
-    this.http.get("./api//movie_project_refactoring/src/api/show_all_movie.php").subscribe((data) => {
+    this.http.get(this.apiUrl + "movie_project_refactoring/src/api/show_all_movie.php").subscribe((data) => {
       this.fetchSuccess.emit(data)
     });
 
   }
 
   totalCalc(){
-    this.http.post("./api/movie_project_refactoring/src/api/calc_total.php", {kind: "LastData"}).subscribe((data: any) => {
+    this.http.post(this.apiUrl + "movie_project_refactoring/src/api/calc_total.php", {kind: "LastData"}).subscribe((data: any) => {
       this.calcDetail.emit(data)
     })
   }
 
   recentlyMovieCheck(){
-    this.http.get("./api/movie_project_refactoring/src/api/recently_movie_list.php").subscribe((data) => {
+    this.http.get(this.apiUrl + "movie_project_refactoring/src/api/recently_movie_list.php").subscribe((data) => {
       this.fetchSuccess.emit(data)
     });
   }
 
   lastData(){
-    this.http.post("./api/movie_project_refactoring/src/api/show_detail.php", {kind: "LastData"}).subscribe((data) => {
+    this.http.post(this.apiUrl + "movie_project_refactoring/src/api/show_detail.php", {kind: "LastData"}).subscribe((data) => {
       this.fetchSuccess.emit(data)
     })
   }

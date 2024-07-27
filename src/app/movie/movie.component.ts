@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatDialog } from '@angular/material/dialog'
 import { MovieControlComponent } from './movie-control.component'
 import { DialogComponent, DIALOG_MODE, DialogModeType } from './dialog.component'
+import { environment } from '../../environments/environment'
 
 @Component({
   selector: 'app-movie',
@@ -35,13 +36,15 @@ export class MovieComponent implements OnInit {
     public dialog: MatDialog
   ){
   }
+  private apiUrl = environment.apiUrl;
   result: any[] = []
   categoryList: any[] = []
   selectedCategory: Number = 1
   selectedPoint: string = "1"
 
   ngOnInit(){
-    this.http.get("./api/movie_project_refactoring/src/api/get_category_table.php").subscribe((data: any) => {
+    console.log(environment.production)
+    this.http.get(this.apiUrl + "movie_project_refactoring/src/api/get_category_table.php").subscribe((data: any) => {
       this.categoryList = data.category ?? data.category
     });
   }
@@ -55,7 +58,7 @@ export class MovieComponent implements OnInit {
   }
 
   private searchDetail(param: any){
-    this.http.post("./api/movie_project_refactoring/src/api/show_detail.php", param).subscribe((data: any) => {
+    this.http.post(this.apiUrl + "movie_project_refactoring/src/api/show_detail.php", param).subscribe((data: any) => {
       this.setResult(data)
     });
   }
