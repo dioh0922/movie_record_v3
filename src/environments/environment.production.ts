@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://kamata-portfolio.tk/'
+  apiUrl: 'http://kamata-portfolio.mydns.jp/'
 };

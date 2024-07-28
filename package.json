@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build prod": "ng build --configuration production",
+    "prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:movie_record_v3": "node dist/movie_record_v3/server/server.mjs"
